@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Unity</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    {% block css %} {% endblock %}
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a style="text-decoration: none; color: black;" href="{% url 'index' %}">Pro Unity</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Учителя</a></li>
+                    <li><a href="{% url 'register' %}">Регистрация</a></li>
+                    <li><a href="{% url 'view_data' %}">Список Учеников</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-text">
+                    <h2>Научитесь работать в IT</h2>
+                    <p>• Практика на реальных проектах</p>
+                    <p>• Помощь с трудоустройством</p>
+                    <h3>Выберите направление</h3>
+                    <div class="directions">
+                        <a href="{% url 'front' %}" class="direction-btn">Front End</a>
+                        <a href="{% url 'card' %}" class="direction-btn">Дизайн</a>
+                        <a href="{% url 'python' %}" class="direction-btn">Back End</a>
+                        <a href="#" class="direction-btn">Архетектура</a>
+                        <a href="#" class="direction-btn">English</a>
+                        <a href="#" class="direction-btn">Маркетинг</a>
+                        <a href="#" class="direction-btn">Мобилография</a>
+                        <a href="{% url 'register' %}" class="direction-btn all-courses">Записаться</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="{% static 'img/img.webp' %}" alt="Student">
+                </div>
+            </div>
+        </section>
+        {% block register %}
+
+        {% endblock %}
+        </main>
+
+
+
+
+
+
+
+</body>
+</html>

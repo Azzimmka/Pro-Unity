@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Просмотр данных</title>
+    <link rel="stylesheet" href="{% static 'view-data.css' %}">
+</head>
+<body>
+
+
+    <h1>Сохраненные данные формы</h1>
+    
+    <form method="GET" action="{% url 'view_data' %}" style="text-align: center; margin-bottom: 20px;">
+        <button><a style="text-decoration: none; color: aliceblue;" href="{% url 'index' %}">Главная страница</a></button>
+        |
+        <input type="text" name="ism" placeholder="Поиск по имени" value="{{ request.GET.ism|default_if_none:'' }}">
+        <input type="text" name="it" placeholder="Поиск по направлению" value="{{ request.GET.it|default_if_none:'' }}">
+        <button type="submit">Поиск</button>
+    </form>
+    
+    <table border="1">
+        <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Телефон</th>
+            <th>Направление</th>
+        </tr>
+        {% for registration in registrations %}
+        <tr>
+            <td>{{ registration.Имя }}</td>
+            <td>{{ registration.Фамилия }}</td>
+            <td>{{ registration.Телефон }}</td>
+            <td>{{ registration.Напровление }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4" style="text-align: center;">Нет данных</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button style="margin-left: 600px; padding-left: 30px; padding-right: 30px;"><a style="text-decoration: none; color: aliceblue;" href="{% url 'view_data' %}">Назад</a></button>
+
+
+</body>
+</html>
