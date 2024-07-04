@@ -27,9 +27,9 @@ def view_data(request):
     registrations = Registration.objects.all()
     
     if ism_query:
-        registrations = registrations.filter(Имя__icontains=ism_query)
+        registrations = registrations.filter(ism__icontains=ism_query)
     if it_query:
-        registrations = registrations.filter(Напровление__icontains=it_query)
+        registrations = registrations.filter(it__icontains=it_query)
         
     return render(request, 'view_data.html', {'registrations': registrations})
 
@@ -42,3 +42,10 @@ def python(request):
 
 def front(request):
     return render(request, 'front.html')
+
+def teachers(request):
+    return render(request, 'teachers.html')
+
+
+def base(request):
+    return render(request, 'base.html')

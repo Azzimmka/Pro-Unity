@@ -1,0 +1,70 @@
+{% extends 'index.html' %}
+{% load static %}
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карточка</title>
+    <link rel="stylesheet" href="{% static 'teachers.css' %}">
+
+</head> -->
+<!-- <body> -->
+{% block css %}
+    <!-- <link rel="stylesheet" href="{% static 'teachers.css' %}"> -->
+
+{% endblock %}
+
+{% block register %}
+    <style>
+        /* styles.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card-image {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.card-profession {
+    font-size: 1.25em;
+    margin: 10px 0;
+    color: #333;
+}
+
+.card-description {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0;
+}
+    </style>
+    <div class="card">
+        <img src="{% static 'img/davlat.jpg' %}" alt="Profile Photo" class="card-image">
+        <h5 class="card-profession">Back End Developer</h5>
+        <p class="card-description">This is a brief description of the professional's background, skills, and experience in the field of backend development.</p>
+    </div>
+
+{% endblock %}
+<!-- </body>
+</html> -->
