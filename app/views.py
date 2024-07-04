@@ -1,9 +1,40 @@
 from django.shortcuts import render
 from .models import Registration
 from .forms import RegistrationForm
+from .models import Course, Category
+
+
 
 def index(request):
     return render(request, 'index.html')
+
+
+
+
+
+def index(request):
+    course = Course.objects.all()
+    category = Category.objects.all()
+
+    return render(request,'index.html' ,{'course':course,'category':category})
+
+
+
+
+
+
+
+
+def category_detail(request,slug):
+    categories = Category.objects.get(slug__iexact=slug)
+    return render(request,'category_detail.html',{'categories':categories})
+
+
+
+
+
+
+
 
 
 

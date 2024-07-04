@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'card.css' %}">
+{% endblock %}
+
+{% block register %}
+<main>
+    <section class="hero">
+        {% for item in categories.categories.all %}
+        <div class="container">
+            <div class="hero-text">
+                <div class="card">
+                    <div class="discount">-50%</div>
+                    <div class="card-content">
+                        <h2>Профессия</h2>
+                        <h1>{{ item.profession }}</h1>
+                        <ul>
+                            <li>Помощь в трудоустройстве</li>
+                            <li>Длительность курса 10 месяцев</li>
+                        </ul>
+                        <div class="prices">
+                            <span class="old-price">24 514 000 сум</span>
+                            <span class="new-price">12 257 000 сум</span>
+                        </div>
+                        <div class="monthly-price">1 361 889 сум/мес.</div>
+                        <div class="buttons">
+                            <button class="details">Подробнее</button>
+                            <a href="{% url 'register' %}"><button class="enroll">Записаться</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p style="color: #b3ff00;">1234</p>
+            <div class="card">
+                <div class="card-content">
+                    <h1>{{ item.h5 }}</h1>
+                    <p>Pro Design — это профессиональная компания, специализирующаяся на предоставлении высококачественных услуг в области дизайна и архитектуры. Основными направлениями деятельности являются разработка интерьеров, создание уникальных архитектурных проектов, а также дизайн мебели и предметов интерьера. Компания использует современные технологии и новейшие тренды для реализации самых смелых и креативных идей клиентов.</p>
+                </div>
+            </div>
+            <p style="color: #b3ff00;">123</p>
+            <div class="hero-image">
+                <img src="{{ item.image.url }}" alt="Student">
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+</main>
+{% endblock %}
